@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="@style/Theme.CrowdSOS">
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="ReportIncidentButton">
+        <item name="android:background">@null</item>
+        <item name="android:scaleType">fitStart</item>
+    </style>
+    
+    <style name="LoginFormContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">16dp</item>
+    </style>
+    <style name="OrangeText">
+        <item name="android:textColor">#C86F3A</item>
+    </style>
+    <style name="ButtonText">
+	    <item name="android:layout_width">fill_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:textColor">#ffffff</item>
+	    <item name="android:gravity">center</item>
+	    <item name="android:layout_margin">3sp</item>
+	    <item name="android:textSize">30sp</item>
+	    <item name="android:textStyle">bold</item>
+	    <item name="android:shadowColor">#000000</item>
+	    <item name="android:shadowDx">1</item>
+	    <item name="android:shadowDy">1</item>
+	    <item name="android:shadowRadius">2</item>
+	</style>   	
+	<style name="ButtonTextSmall">
+	    <item name="android:layout_width">fill_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:textColor">#ffffff</item>
+	    <item name="android:gravity">center</item>
+	    <item name="android:layout_margin">2sp</item>
+	    <item name="android:textSize">14sp</item>
+	    <item name="android:shadowColor">#000000</item>
+	    <item name="android:shadowDx">1</item>
+	    <item name="android:shadowDy">1</item>
+	    <item name="android:shadowRadius">2</item>
+	</style>
+	
+	<style name="CrowdSOSActionBar" parent="android:style/Widget.Holo.ActionBar">
+    	<item name="android:background">@drawable/action_bar_background</item>
+	</style>	
+	
+	<style name="OrangeActionBar" parent="android:style/Widget.Holo.ActionBar">
+    	<item name="android:background">@drawable/horizontal_orange_gradient</item>
+	</style>
+		
+	<style name="Theme.CrowdSOS" parent="@style/Theme.Sherlock.Light">
+	    <item name="android:actionBarStyle">@style/CrowdSOSActionBar</item>
+	</style>
+	<style name="Theme.CrowdSOS.OrangeActionBar" parent="@style/Theme.CrowdSOS">
+	    <item name="android:actionBarStyle">@style/OrangeActionBar</item>
+	</style>
+	<style name="Theme.CrowdSOS.Dialog" parent="@android:style/Theme.Holo.Dialog.NoActionBar">
+	    <item name="android:background">@null</item>
+	    <item name="android:width">302dp</item>
+	</style>
+
+</resources>

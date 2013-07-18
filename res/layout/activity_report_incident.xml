@@ -1,0 +1,106 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/report_incident_layout"
+    android:layout_width="302dp"
+    android:layout_height="wrap_content"
+    android:background="@null"
+    android:orientation="vertical"
+    tools:context=".ReportIncidentActivity" >
+    <ImageButton
+        android:id="@+id/report_incident_title"
+        style="@style/ReportIncidentButton"
+        android:layout_width="fill_parent"
+        android:layout_height="51dp"
+        android:src="@drawable/report_incident_title_selector" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageButton
+            android:id="@+id/theft_button"
+            style="@style/ReportIncidentButton"
+            android:layout_width="101dp"
+            android:layout_height="90dp"
+            android:contentDescription="@string/theft"
+            android:src="@drawable/theft_button_selector" />
+
+        <ImageButton
+            android:id="@+id/other_button"
+            style="@style/ReportIncidentButton"
+            android:layout_width="101dp"
+            android:layout_height="90dp"
+            android:contentDescription="@string/other"
+            android:src="@drawable/other_button_selector" />
+
+        <ImageButton
+            android:id="@+id/overdose_button"
+            style="@style/ReportIncidentButton"
+            android:layout_width="101dp"
+            android:layout_height="90dp"
+            android:contentDescription="@string/overdose"
+            android:src="@drawable/overdose_button_selector" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageButton
+            android:id="@+id/assault_button"
+            style="@style/ReportIncidentButton"
+            android:layout_width="101dp"
+            android:layout_height="90dp"
+            android:contentDescription="@string/assault"
+            android:src="@drawable/assault_button_selector" />
+
+        <ImageButton
+            android:id="@+id/sexual_assault_button"
+            style="@style/ReportIncidentButton"
+            android:layout_width="101dp"
+            android:layout_height="90dp"
+            android:contentDescription="@string/sexual_assault"
+            android:src="@drawable/sexual_assault_button_selector" />
+
+        <ImageButton
+            android:id="@+id/medical_button"
+            style="@style/ReportIncidentButton"
+            android:layout_width="101dp"
+            android:layout_height="90dp"
+            android:contentDescription="@string/medical"
+            android:src="@drawable/medical_button_selector" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageButton
+            android:id="@+id/lostfound_button"
+            style="@style/ReportIncidentButton"
+            android:layout_width="101dp"
+            android:layout_height="94dp"
+            android:contentDescription="@string/lost_found"
+            android:src="@drawable/lostfound_button_selector" />
+
+        <ImageButton
+            android:id="@+id/findme_button"
+            style="@style/ReportIncidentButton"
+            android:layout_width="101dp"
+            android:layout_height="94dp"
+            android:contentDescription="@string/find_me"
+            android:src="@drawable/findme_button_selector" />
+
+        <ImageButton
+            android:id="@+id/buysell_button"
+            style="@style/ReportIncidentButton"
+            android:layout_width="101dp"
+            android:layout_height="94dp"
+            android:contentDescription="@string/buy_sell"
+            android:src="@drawable/buysell_button_selector" />
+
+    </LinearLayout>
+
+</LinearLayout>

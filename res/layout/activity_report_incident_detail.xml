@@ -1,0 +1,84 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    tools:context=".ReportIncidentDetailActivity" >
+
+    <ImageButton
+        android:id="@+id/incident_details_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:contentDescription="@string/report_incident"
+        android:scaleType="fitStart"
+        android:src="@drawable/report_incident_title_selector" />
+
+    <LinearLayout
+        android:id="@+id/incident_header_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/incident_details_title"
+        android:background="@drawable/gray_background_gradient"
+        android:orientation="vertical" >
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/incident_header_layout"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/gray_background_gradient"
+        android:gravity="top"
+        android:padding="20dp" >
+
+        <Button
+            android:id="@+id/submit_incident_button"
+            style="@style/ButtonText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/incident_details_textview"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/btn_orange"
+            android:text="@string/action_submit" />
+
+        <EditText
+            android:id="@+id/incident_details_textview"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/submit_incident_button"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/submit_incident_button"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded_corner_white_box"
+            android:hint="@string/incident_details"
+            android:inputType="textMultiLine"
+            android:lines="4"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#000000"
+            android:textSize="16sp" >
+
+            <requestFocus />
+        </EditText>
+
+        <ImageButton
+            android:id="@+id/camera_button"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignRight="@+id/submit_incident_button"
+            android:layout_alignTop="@+id/incident_details_textview"
+            android:background="@null"
+            android:scaleType="fitStart"
+            android:src="@drawable/camera_button_selector"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

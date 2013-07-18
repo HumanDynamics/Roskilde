@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.crowdsos.roskilde"
+    android:versionCode="7"
+    android:versionName="1.1" >
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <permission
+        android:name="com.crowdsos.roskilde.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" >
+    </permission>
+
+    <uses-permission android:name="com.crowdsos.roskilde.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <!-- All probes -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- Launching -->
+    <uses-permission android:name="android.permission.BATTERY_STATS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- Backing up database to SD card -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- GCM -->
+    <permission
+        android:name="com.crowdsos.roskilde.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.crowdsos.roskilde.permission.C2D_MESSAGE" />
+    <!-- App receives GCM messages. -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <!-- GCM requires a Google account. -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- Bluetooth Probe -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Sherlock.Light" >
+        <activity
+            android:name="com.crowdsos.roskilde.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.crowdsos.roskilde.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:parentActivityName="com.crowdsos.roskilde.MainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" android:launchMode="singleInstance" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.crowdsos.roskilde.MainActivity" />
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <data android:scheme="crowdsos" android:host="roskilde" />
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.crowdsos.roskilde.RegistrationActivity"
+            android:label="@string/title_activity_registration"
+            android:parentActivityName="com.crowdsos.roskilde.MainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.crowdsos.roskilde.MainActivity" />
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyB89DSIrYE3IF7AKGunJ4Mx3QmTiQIJsMU" />
+
+        <activity
+            android:name="com.crowdsos.roskilde.ReportIncidentActivity"
+            android:label="@string/title_activity_report_incident"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.CrowdSOS.Dialog" >
+        </activity>
+        <activity
+            android:name="com.crowdsos.roskilde.ReportIncidentDetailActivity"
+            android:label="@string/title_incident_detail"
+            android:parentActivityName="com.crowdsos.roskilde.ReportIncidentActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.CrowdSOS.Dialog" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.crowdsos.roskilde.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.crowdsos.roskilde.IncidentListActivity"
+            android:label="@string/title_activity_incident_list"
+            android:parentActivityName="com.crowdsos.roskilde.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Sherlock.Light" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.crowdsos.roskilde.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.crowdsos.roskilde.IncidentDetailActivity"
+            android:label="@string/title_incident_detail"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.crowdsos.roskilde.TermsAndConditionsActivity"
+            android:label="@string/title_activity_terms_and_conditions"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- Funf / openPDS services -->
+        <service
+            android:name="edu.mit.media.funf.storage.NameValueDatabaseService"
+            android:enabled="true" >
+        </service>
+        <service
+            android:name="edu.mit.media.openpds.client.funf.HttpsUploadService"
+            android:enabled="true" >
+        </service>
+
+        <receiver
+            android:name="edu.mit.media.openpds.client.funf.LauncherReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_CHANGED" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.DOCK_EVENT" />
+                <action android:name="android.intent.action.ACTION_SCREEN_ON" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.crowdsos.roskilde" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="edu.mit.media.funf.FunfManager"
+            android:enabled="true" >
+            <meta-data
+                android:name="MainPipeline"
+                android:resource="@string/main_pipeline_config" />
+        </service>
+        <service android:name="edu.mit.media.openpds.client.NotificationService" />
+        <service android:name="com.crowdsos.roskilde.GCMIntentService" />
+
+        <activity
+            android:name="com.crowdsos.roskilde.UpdatePlayServicesActivity"
+            android:label="@string/title_activity_update_play_services" >
+        </activity>
+        <activity
+            android:name="com.crowdsos.roskilde.SocialAccountLoginActivity"
+            android:label="@string/title_activity_social_account_login" >
+        </activity>
+    </application>
+
+</manifest>

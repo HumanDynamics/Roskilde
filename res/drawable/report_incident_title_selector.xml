@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+   <item android:drawable="@drawable/report_incident_title_pressed"
+        android:state_pressed="true" />
+    <item android:drawable="@drawable/report_incident_title" />
+<!-- 
+	<item>
+	    <shape>
+	        <corners android:topLeftRadius="10dp" android:topRightRadius="10dp" />
+            <gradient
+                android:startColor="#5E2D00"
+                android:endColor="#CD5A22"
+                android:angle="270" />
+            <padding android:left="10dp" android:right="10dp" android:top="5dp" android:bottom="5dp" />
+	    </shape>
+	</item>
+	-->
+</selector>
