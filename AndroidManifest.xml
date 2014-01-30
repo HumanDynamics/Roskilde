@@ -8,17 +8,22 @@
         android:minSdkVersion="10"
         android:targetSdkVersion="17" />
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <permission
         android:name="com.crowdsos.roskilde.permission.MAPS_RECEIVE"
         android:protectionLevel="signature" >
     </permission>
-
+    <!-- GCM -->
+    <permission
+        android:name="com.crowdsos.roskilde.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    
+    <uses-permission android:name="com.crowdsos.roskilde.permission.C2D_MESSAGE" />
     <uses-permission android:name="com.crowdsos.roskilde.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    
+    <uses-permission android:name="android.permission.INTERNET" />    
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <!-- All probes -->
@@ -31,12 +36,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <!-- GCM -->
-    <permission
-        android:name="com.crowdsos.roskilde.permission.C2D_MESSAGE"
-        android:protectionLevel="signature" />
-
-    <uses-permission android:name="com.crowdsos.roskilde.permission.C2D_MESSAGE" />
     <!-- App receives GCM messages. -->
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <!-- GCM requires a Google account. -->
@@ -51,7 +50,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.Sherlock.Light" >
+        android:theme="@style/Theme.AppCompat.Light" >
         <activity
             android:name="com.crowdsos.roskilde.MainActivity"
             android:label="@string/app_name"
@@ -114,7 +113,7 @@
             android:label="@string/title_activity_incident_list"
             android:parentActivityName="com.crowdsos.roskilde.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Sherlock.Light" >
+            android:theme="@style/Theme.AppCompat.Light" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.crowdsos.roskilde.MainActivity" />
@@ -138,7 +137,14 @@
             android:name="edu.mit.media.openpds.client.funf.HttpsUploadService"
             android:enabled="true" >
         </service>
-
+        <service
+            android:name="edu.mit.media.funf.FunfManager"
+            android:enabled="true" >
+            <meta-data
+                android:name="MainPipeline"
+                android:resource="@string/main_pipeline_config" />
+        </service>
+        <service android:name="edu.mit.media.openpds.client.NotificationService" />
         <receiver
             android:name="edu.mit.media.openpds.client.funf.LauncherReceiver"
             android:enabled="true" >
@@ -151,7 +157,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:name="edu.mit.media.openpds.client.GcmBroadcastReceiver"            
             android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
@@ -161,15 +167,8 @@
             </intent-filter>
         </receiver>
 
-        <service
-            android:name="edu.mit.media.funf.FunfManager"
-            android:enabled="true" >
-            <meta-data
-                android:name="MainPipeline"
-                android:resource="@string/main_pipeline_config" />
-        </service>
-        <service android:name="edu.mit.media.openpds.client.NotificationService" />
-        <service android:name="com.crowdsos.roskilde.GCMIntentService" />
+
+        <service android:name="edu.mit.media.openpds.client.GcmIntentService" />
 
         <activity
             android:name="com.crowdsos.roskilde.UpdatePlayServicesActivity"
@@ -179,6 +178,9 @@
             android:name="com.crowdsos.roskilde.SocialAccountLoginActivity"
             android:label="@string/title_activity_social_account_login" >
         </activity>
+        
+        <meta-data android:name="com.google.android.gms.version"
+           android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

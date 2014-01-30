@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -28,12 +27,14 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.content.Intent;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.ShareActionProvider;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import com.actionbarsherlock.widget.ShareActionProvider;
 
-public class MainActivity extends SherlockFragmentActivity {
+public class MainActivity extends ActionBarActivity {
 
 	private GoogleMap mMap;
 	private LocationManager mLocationManager;
@@ -166,24 +167,17 @@ public class MainActivity extends SherlockFragmentActivity {
 	}
 	
 	@Override
-	public boolean onCreateOptionsMenu(com.actionbarsherlock.view.Menu menu) {
+	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getSupportMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.main, menu);
 		PreferencesWrapper prefs = new PreferencesWrapper(this);
 		
 		Intent shareIntent = new Intent(Intent.ACTION_SEND);
 		shareIntent.setType("text/plain");
 		shareIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.referral_subject));
 		shareIntent.putExtra(Intent.EXTRA_TEXT, "http://refer.crowdsos.net/~saper/crowdsos/refer.php?by=" + prefs.getUUID());
-		
-		try {
-			mShareActionProvider = (ShareActionProvider) menu.findItem(R.id.action_share).getActionProvider();
-			mShareActionProvider.setShareIntent(shareIntent);
-			mShareActionProvider.setMenuItem(menu.findItem(R.id.action_share));
-		} catch (NoSuchMethodError error) {
-			Log.w("MainActivity", "Unable to setShareIntent");
-			menu.findItem(R.id.action_share).setIntent(Intent.createChooser(shareIntent, "Refer a friend"));
-		}
+
+		menu.findItem(R.id.action_share).setIntent(Intent.createChooser(shareIntent, "Refer a friend"));		
 		
 		return true;
 	}

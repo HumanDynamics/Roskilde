@@ -6,7 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import com.actionbarsherlock.app.SherlockActivity;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -15,12 +14,13 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import com.actionbarsherlock.view.MenuItem;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class IncidentDetailActivity extends SherlockActivity {
+public class IncidentDetailActivity extends ActionBarActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

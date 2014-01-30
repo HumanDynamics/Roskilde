@@ -1,7 +1,5 @@
 package com.crowdsos.roskilde;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.app.ActionBar;
 
 import android.annotation.TargetApi;
 import android.os.Bundle;
@@ -9,6 +7,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -21,7 +21,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class IncidentListActivity extends SherlockFragmentActivity implements
+public class IncidentListActivity extends ActionBarActivity implements
 		ActionBar.OnNavigationListener {
 
 	/**

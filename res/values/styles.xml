@@ -60,7 +60,7 @@
     	<item name="android:background">@drawable/horizontal_orange_gradient</item>
 	</style>
 		
-	<style name="Theme.CrowdSOS" parent="@style/Theme.Sherlock.Light">
+	<style name="Theme.CrowdSOS" parent="@style/Theme.AppCompat.Light">
 	    <item name="android:actionBarStyle">@style/CrowdSOSActionBar</item>
 	</style>
 	<style name="Theme.CrowdSOS.OrangeActionBar" parent="@style/Theme.CrowdSOS">
